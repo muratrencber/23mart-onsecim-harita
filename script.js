@@ -8,7 +8,8 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 const setMarkers = async () => {
-    const data = await fetch("/places.json");
+    const windowLocation = window.location.pathname;
+    const data = await fetch(windowLocation+"places.json");
     const json = await data.json();
     for(const ilId in json)
     {
